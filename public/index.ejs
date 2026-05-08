@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed's Auto Spa | Book Now</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Mohamed's Auto Spa</h1>
+        <p>Premium Car Care & Detailing</p>
+        <a href="<%= squareBookingUrl %>" class="btn-book">Book Appointment Now</a>
+    </header>
+
+    <main class="container">
+        <section class="announcements">
+            <h3>Special Deals & Updates</h3>
+            <% announcements.forEach(deal => { %>
+                <div class="deal-card">
+                    <h4><%= deal.title %></h4>
+                    <p><%= deal.detail %></p>
+                </div>
+            <% }) %>
+        </section>
+
+        <section class="services">
+            <h3>Our Services</h3>
+            <div class="service-grid">
+                <% services.forEach(service => { %>
+                    <div class="service-card">
+                        <h4><%= service.name %></h4>
+                        <p class="price"><%= service.price %></p>
+                        <p><%= service.desc %></p>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <section class="feedback">
+            <h3>Have a Question or Idea?</h3>
+            <form action="/feedback" method="POST">
+                <textarea name="comment" placeholder="What can we do for you?" required></textarea>
+                <button type="submit" class="btn-submit">Send Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
