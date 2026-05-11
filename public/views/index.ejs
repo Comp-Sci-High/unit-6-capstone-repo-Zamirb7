@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed's Auto Spa | Book Now</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<%- include('partials/header') %>
+
+<header class="hero">
+    <h1>Mohamed's Auto Spa</h1>
+    <p>Professional detailing and automotive care based in [Your Location].</p>
+    <a href="<%= squareBookingUrl %>" class="btn-book">Book Appointment</a>
+</header>
+
+<main class="container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="service-grid" id="services">
+        <% services.forEach(service => { %>
+            <div class="service-card">
+                <span class="price"><%= service.price %></span>
+                <h4><%= service.name %></h4>
+                <p style="color: #666;"><%= service.desc %></p>
+            </div>
+        <% }) %>
+    </div>
+
+    <section style="margin-top: 80px;">
+        <h2 class="section-title">Inquiries & Feedback</h2>
+        <form action="/feedback" method="POST" class="feedback-form" id="feedback">
+            <textarea name="comment" placeholder="How can we help you?"></textarea>
+            <button type="submit" class="btn-submit">Submit Request</button>
+        </form>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
